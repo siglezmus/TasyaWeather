@@ -1,9 +1,12 @@
+from pathlib import Path
+
 from selenium import webdriver
 import datetime
 from references import *
+from pathlib import Path
 
-
-
+driver_loc = "C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe"
+#driver_loc = str(Path.absolute(__file__).parent) + "chrome.exe"
 
 class Weather:
 
@@ -21,7 +24,40 @@ class Weather:
         self.last_weather_request = datetime.datetime.now()
         self.driver.close()
         #self.print_all()
-        #sticker reference
+        self.sticker_reference = self.get_sticker(self.description)
+
+    def get_sticker(self, description):
+
+        if (description in list1):
+            return ref1
+        elif(description in list2):
+            return ref2
+        elif (description in list3):
+            return ref3
+        elif (description in list4):
+            return ref4
+        elif (description in list5):
+            return ref5
+        elif (description in list6):
+            return ref6
+        elif (description in list7):
+            return ref7
+        elif (description in list8):
+            return ref8
+        elif (description in list9):
+            return ref9
+        elif (description in list10):
+            return ref10
+        elif (description in list11):
+            return ref11
+        elif (description in list12):
+            return ref12
+        elif (description in list13):
+            return ref13
+        elif (description in list14):
+            return ref14
+        else:
+            return err_ref
 
     def get_current_temperature(self, driver):
         return driver.find_elements_by_xpath(current_temperature_xpath)[0].text
